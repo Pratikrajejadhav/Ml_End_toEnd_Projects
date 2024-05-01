@@ -27,11 +27,10 @@ def main():
     videos_watched = st.text_input("videos_watched"," ")
     maximum_days_inactive =  st.text_input("maximum_days_inactive"," ")
     customer_support_calls = st.text_input("customer_support_calls"," ")
-
-
     result=""
+
     if st.button("Predict"):
-        result=classifier.predict([[eval(gender), eval(age), eval(no_of_days_subscribed), 
+        result=classifier.predict([[eval(gender),eval(age),eval(no_of_days_subscribed), 
                                            eval(multi_screen),eval(mail_subscribed), eval(weekly_mins_watched), 
                                            eval(minimum_daily_mins), eval(maximum_daily_mins),eval(weekly_max_night_mins),eval(videos_watched),
                                            eval(maximum_days_inactive),eval(customer_support_calls)]])
@@ -40,6 +39,6 @@ def main():
 
 if __name__=='__main__':
     main()
-    
+     
     
     

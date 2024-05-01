@@ -22,19 +22,23 @@ def welcome():
 
 @app.route('/predict',methods=["GET"])
 def predict_note_authentication():
-    input_cols=['gender','age','no_of_days_subscribed','multi_screen','mail_subscribed','weekly_mins_watched','minimum_daily_mins',
-                'maximum_daily_mins','weekly_max_night_mins','videos_watched','maximum_days_inactive','customer_support_calls']
+    input_cols=['gender', 'age', 'no_of_days_subscribed', 'multi_screen',
+       'mail_subscribed', 'weekly_mins_watched', 'minimum_daily_mins',
+       'maximum_daily_mins', 'weekly_max_night_mins', 'videos_watched',
+       'maximum_days_inactive', 'customer_support_calls']
     list1=[]
     for i in input_cols:
         val=request.args.get(i)
+        print(val)
         list1.append(eval(val))
+    
 
 
     prediction=classifier.predict([list1])   # list of list
 
     
     print(prediction)
-    return "Hello, The Churn is"+str(prediction)
+    return "Hello, The Churn is"+ str(prediction)
 
 
 
